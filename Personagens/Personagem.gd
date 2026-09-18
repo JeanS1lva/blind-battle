@@ -24,6 +24,7 @@ var altura_ataque: int = 0
 
 var ataque_visual: Node2D = null
 
+var som_ataque: AudioStream
 
 # =========================================================
 # CALCULAR ATAQUE
@@ -233,7 +234,7 @@ class AtaqueDesenho extends Node2D:
 class AtaqueDesenhoCasas extends Node2D:
 
 	var casas: Array[Vector2i] = []
-
+	var ataque_confirmado: bool = false
 	var casa_personagem: Vector2i
 
 	var tamanho_casa: Vector2 = Vector2(
@@ -241,7 +242,11 @@ class AtaqueDesenhoCasas extends Node2D:
 		50
 	)
 
+	func mudar_para_vermelho():
 
+		ataque_confirmado = true
+		queue_redraw()
+	
 	func _draw():
 
 		for casa in casas:
@@ -280,6 +285,11 @@ class AtaqueDesenhoCasas extends Node2D:
 				),
 
 				Color(
+					0.2,
+					0.4,
+					1.0,
+					0.35
+					) if not ataque_confirmado else Color(
 					1.0,
 					0.2,
 					0.2,
@@ -298,11 +308,16 @@ class AtaqueDesenhoCasas extends Node2D:
 				),
 
 				Color(
-					1.0,
-					0.2,
-					0.2,
-					1.0
-				),
+						0.2,
+						0.4,
+						1.0,
+						1.0
+					) if not ataque_confirmado else Color(
+						1.0,
+						0.2,
+						0.2,
+						1.0
+					),
 
 				false,
 

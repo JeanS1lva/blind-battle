@@ -1,7 +1,6 @@
 class_name Mago
 extends Personagem
 
-
 # =========================================================
 # ROTAÇÃO DO ATAQUE
 # =========================================================
@@ -19,7 +18,7 @@ func _init():
 
 	vida_inicial = 8
 	vida = 8
-
+	som_ataque = preload("res://Audios/Fahhh.mp3")
 	movimento = 4
 
 	dano_ataque = 2

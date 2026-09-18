@@ -1,11 +1,10 @@
 class_name Guerreiro
 extends Personagem
 
-
 func _init():
 
 	nome_classe = "Guerreiro"
-
+	som_ataque = preload("res://Audios/Fahhh.mp3")
 	vida_inicial = 12
 	vida = 12
 

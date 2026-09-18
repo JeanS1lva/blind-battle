@@ -5,7 +5,7 @@ extends Personagem
 func _init():
 
 	nome_classe = "Arqueiro"
-
+	som_ataque = preload("res://Audios/Fahhh.mp3")
 	vida_inicial = 8
 	vida = 8
 

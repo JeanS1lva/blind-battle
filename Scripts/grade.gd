@@ -48,6 +48,12 @@ var ataque_usado: bool = false
 var item_usado: bool = false
 
 # =========================================================
+# CONTROLE DO ATAQUE VISUAL
+# =========================================================
+
+var ataque_confirmado_visual: bool = false
+
+# =========================================================
 # POSIÇÕES DOS JOGADORES
 # =========================================================
 
@@ -603,6 +609,8 @@ func mudar_turno(novo_turno: int):
 	item_usado = false
 
 	modo_ataque = false
+	ataque_confirmado_visual = false
+
 	casas_ataque_assassino.clear()
 
 	if personagem_local != null:
@@ -683,6 +691,11 @@ func _process(_delta):
 	# =====================================================
 
 	if modo_ataque:
+
+		# Depois de confirmar o ataque,
+		# não recria mais a mira.
+		if ataque_confirmado_visual:
+			return
 
 		if personagem_local is Assassino:
 
@@ -850,6 +863,48 @@ func atualizar_caminho(
 			)
 
 # =========================================================
+# EXECUTAR ATAQUE
+# =========================================================
+
+func executar_ataque():
+
+	if meu_jogador != turno_atual:
+		return
+
+	if ataque_usado:
+		print("Você já atacou neste turno.")
+		return
+
+	if personagem_local == null:
+		return
+
+	if personagem_local.ataque_visual == null:
+		return
+
+	var desenho = personagem_local.ataque_visual.get_child(0)
+
+	desenho.ataque_confirmado = true
+	desenho.queue_redraw()
+
+	ataque_confirmado_visual = true
+	ataque_usado = true
+
+	if personagem_local.som_ataque != null:
+
+		var audio = AudioStreamPlayer.new()
+
+		audio.stream = personagem_local.som_ataque
+
+		add_child(audio)
+
+		audio.play()
+
+	print(
+		"ATAQUE EXECUTADO PELO JOGADOR ",
+		meu_jogador
+	)
+
+# =========================================================
 # SPRITE DO CAMINHO
 # =========================================================
 
@@ -940,6 +995,8 @@ func alternar_modo_ataque():
 
 	modo_ataque = !modo_ataque
 
+	ataque_confirmado_visual = false
+
 	limpar_caminho()
 	esconder_x()
 
@@ -975,6 +1032,7 @@ func girar_ataque():
 		personagem_local.esconder_ataque()
 
 		modo_ataque = false
+		ataque_confirmado_visual = false
 
 		print(
 			"Seleção do Assassino cancelada."
@@ -1341,11 +1399,12 @@ func receber_movimento(
 # INPUT
 # =========================================================
 
-
 func _unhandled_input(event):
-# =========================================================
-# BARRA DE ESPAÇO
-# =========================================================
+
+	# =====================================================
+	# BARRA DE ESPAÇO
+	# =====================================================
+
 	if event is InputEventKey and event.pressed:
 
 		if event.keycode == KEY_SPACE:
@@ -1353,14 +1412,17 @@ func _unhandled_input(event):
 			alternar_modo_ataque()
 
 			return
-# =========================================================
-# TECLA E
-# =========================================================		
+
+	# =====================================================
+	# TECLA E
+	# =====================================================
+
 		if event.keycode == KEY_E:
 
 			revelar_item()
 
 			return
+
 	# =====================================================
 	# MOUSE
 	# =====================================================
@@ -1446,7 +1508,12 @@ func _unhandled_input(event):
 			# =============================================
 
 			if modo_ataque:
-				return
+
+				if personagem_local is not Assassino:
+
+					executar_ataque()
+
+					return
 
 			# =============================================
 			# MOVIMENTO
