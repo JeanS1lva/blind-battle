@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://blbkpy5uarmgo"
-path="res://.godot/imported/tabuleiro2 - Copia.png-f14303cb5adf98a8341cdcaee4aed003.ctex"
+path="res://.godot/imported/tabuleiro2 - Copia.png-34103dfaa92ba6374f3e58bf44a64067.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://tabuleiro2 - Copia.png"
-dest_files=["res://.godot/imported/tabuleiro2 - Copia.png-f14303cb5adf98a8341cdcaee4aed003.ctex"]
+source_file="res://Imagens/tabuleiro2 - Copia.png"
+dest_files=["res://.godot/imported/tabuleiro2 - Copia.png-34103dfaa92ba6374f3e58bf44a64067.ctex"]
 
 [params]
 

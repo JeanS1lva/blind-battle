@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://ctm8uih3ixxjv"
-path="res://.godot/imported/tabu.png-24f29430b65940daad9d125b986c5b26.ctex"
+path="res://.godot/imported/tabu.png-3bfe2aa39cba3d2ab4c91538940234c2.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://tabu.png"
-dest_files=["res://.godot/imported/tabu.png-24f29430b65940daad9d125b986c5b26.ctex"]
+source_file="res://Imagens/tabu.png"
+dest_files=["res://.godot/imported/tabu.png-3bfe2aa39cba3d2ab4c91538940234c2.ctex"]
 
 [params]
 
