@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bblhll6oxk3t"
-path="res://.godot/imported/arqueira.png-0b36c1b53821fdd62ab4eb2d19e7d741.ctex"
+uid="uid://d3qc3byuh7430"
+path="res://.godot/imported/guerreiro.png-e5fa343e14a11630e7111286fa72b99e.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Personagens/arqueira.png"
-dest_files=["res://.godot/imported/arqueira.png-0b36c1b53821fdd62ab4eb2d19e7d741.ctex"]
+source_file="res://Imagens/Sprites/guerreiro.png"
+dest_files=["res://.godot/imported/guerreiro.png-e5fa343e14a11630e7111286fa72b99e.ctex"]
 
 [params]
 

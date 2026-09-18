@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://d3qc3byuh7430"
-path="res://.godot/imported/guerreiro.png-f50b62aa7fcbd52c144e043e9738f364.ctex"
+uid="uid://ckcyad054amek"
+path="res://.godot/imported/mago.png-474ff8729652dff130000dc2a5e1c5d1.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Personagens/guerreiro.png"
-dest_files=["res://.godot/imported/guerreiro.png-f50b62aa7fcbd52c144e043e9738f364.ctex"]
+source_file="res://Imagens/Sprites/mago.png"
+dest_files=["res://.godot/imported/mago.png-474ff8729652dff130000dc2a5e1c5d1.ctex"]
 
 [params]
 

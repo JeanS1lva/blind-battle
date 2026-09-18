@@ -1341,8 +1341,26 @@ func receber_movimento(
 # INPUT
 # =========================================================
 
-func _unhandled_input(event):
 
+func _unhandled_input(event):
+# =========================================================
+# BARRA DE ESPAÇO
+# =========================================================
+	if event is InputEventKey and event.pressed:
+
+		if event.keycode == KEY_SPACE:
+
+			alternar_modo_ataque()
+
+			return
+# =========================================================
+# TECLA E
+# =========================================================		
+		if event.keycode == KEY_E:
+
+			revelar_item()
+
+			return
 	# =====================================================
 	# MOUSE
 	# =====================================================

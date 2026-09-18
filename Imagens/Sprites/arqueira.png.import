@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://ckcyad054amek"
-path="res://.godot/imported/mago.png-3acf8ec0de2666b57d26139340c347cd.ctex"
+uid="uid://bblhll6oxk3t"
+path="res://.godot/imported/arqueira.png-c3e196aa2b71ed269e71d321b27a231b.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Personagens/mago.png"
-dest_files=["res://.godot/imported/mago.png-3acf8ec0de2666b57d26139340c347cd.ctex"]
+source_file="res://Imagens/Sprites/arqueira.png"
+dest_files=["res://.godot/imported/arqueira.png-c3e196aa2b71ed269e71d321b27a231b.ctex"]
 
 [params]
 
