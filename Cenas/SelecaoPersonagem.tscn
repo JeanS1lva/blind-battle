@@ -1,0 +1,75 @@
+[gd_scene format=3 uid="uid://c3fk4itgte6r1"]
+
+[ext_resource type="Texture2D" uid="uid://b8ka58ox1s2sl" path="res://Imagens/selecao.jpg" id="1_e1irb"]
+[ext_resource type="Script" uid="uid://smqpt4c8gyol" path="res://Cenas/SelecaoPersonagem.gd" id="1_mq0ym"]
+[ext_resource type="Texture2D" uid="uid://dxi6w8copqa71" path="res://Imagens/guerreiro.jpg" id="2_mq0ym"]
+[ext_resource type="Texture2D" uid="uid://we8g2y45np4j" path="res://Imagens/mago.jpg" id="3_b16w7"]
+[ext_resource type="Texture2D" uid="uid://dxs1lmhu23fua" path="res://Imagens/assassino.jpg" id="4_xm42q"]
+[ext_resource type="Texture2D" uid="uid://2xphwb2a3nia" path="res://Imagens/arqueiro.jpg" id="5_5ekgp"]
+[ext_resource type="Texture2D" uid="uid://cpirnl020am8" path="res://Imagens/tittle.jpg" id="6_yi6u6"]
+
+[node name="SelecaoPersonagem" type="Control" unique_id=643827488]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_mq0ym")
+
+[node name="Borda" type="BoxContainer" parent="." unique_id=159693978]
+layout_mode = 0
+offset_left = 391.0
+offset_top = 77.0
+offset_right = 774.0
+offset_bottom = 549.0
+
+[node name="fundo" type="Sprite2D" parent="." unique_id=2023453421]
+position = Vector2(568.00006, 321)
+scale = Vector2(0.6378425, 0.7053572)
+texture = ExtResource("1_e1irb")
+
+[node name="guerreiro" type="Sprite2D" parent="." unique_id=2080189022]
+position = Vector2(293.5, 318.5)
+scale = Vector2(0.26222822, 0.27227014)
+texture = ExtResource("2_mq0ym")
+
+[node name="mago" type="Sprite2D" parent="." unique_id=44102253]
+position = Vector2(478.79892, 318.5)
+scale = Vector2(0.2588919, 0.26319447)
+texture = ExtResource("3_b16w7")
+
+[node name="assassino" type="Sprite2D" parent="." unique_id=774842937]
+position = Vector2(653, 319)
+scale = Vector2(0.26222822, 0.26544943)
+texture = ExtResource("4_xm42q")
+
+[node name="arqueiro" type="Sprite2D" parent="." unique_id=744710106]
+position = Vector2(843.00006, 319)
+scale = Vector2(0.26222822, 0.26544943)
+texture = ExtResource("5_5ekgp")
+
+[node name="nome" type="Sprite2D" parent="." unique_id=682329908]
+position = Vector2(563, 89)
+scale = Vector2(0.12499998, 0.093909435)
+texture = ExtResource("6_yi6u6")
+
+[node name="Voltar" type="Button" parent="." unique_id=889282913]
+layout_mode = 0
+offset_left = 204.0
+offset_top = 51.0
+offset_right = 296.0
+offset_bottom = 77.0
+text = "Voltar"
+
+[node name="Escolhas" type="Label" parent="." unique_id=346930883]
+layout_mode = 0
+offset_left = 405.0
+offset_top = 514.0
+offset_right = 807.0
+offset_bottom = 563.0
+text = "Personagem Escolhido: Arqueiro
+Aguardando jogadores..."
+horizontal_alignment = 1
+
+[connection signal="pressed" from="Voltar" to="." method="voltar"]

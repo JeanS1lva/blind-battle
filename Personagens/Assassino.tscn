@@ -1,0 +1,11 @@
+[gd_scene format=3 uid="uid://dasdvte3tvagq"]
+
+[ext_resource type="Texture2D" uid="uid://cw13mtw446aq5" path="res://Personagens/ladino.png" id="1_lvar7"]
+[ext_resource type="Script" uid="uid://bfhlbgocopjv8" path="res://Personagens/Assassino.gd" id="2_esxwg"]
+
+[node name="Assassino" type="Sprite2D" unique_id=158236413]
+
+[node name="Assassino" type="Sprite2D" parent="." unique_id=534383566]
+scale = Vector2(0.96000004, 0.96000004)
+texture = ExtResource("1_lvar7")
+script = ExtResource("2_esxwg")

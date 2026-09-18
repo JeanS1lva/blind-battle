@@ -1,0 +1,48 @@
+[gd_scene format=3 uid="uid://c7jyohjseuep8"]
+
+[ext_resource type="Script" uid="uid://nnqp2b0e5e4d" path="res://Multiplayer.gd" id="1_702t5"]
+[ext_resource type="Texture2D" uid="uid://dax84l4vcr1jn" path="res://Imagens/fundo.jpg" id="1_cmlc0"]
+[ext_resource type="Texture2D" uid="uid://bq7hwrg3vuycu" path="res://Imagens/multiplayer.png" id="2_702t5"]
+
+[node name="Multiplayer" type="Control" unique_id=1343473523]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_702t5")
+
+[node name="fundo" type="Sprite2D" parent="." unique_id=1042033990]
+position = Vector2(569.5, 325.375)
+scale = Vector2(0.7709459, 0.77220887)
+texture = ExtResource("1_cmlc0")
+
+[node name="tela" type="Sprite2D" parent="." unique_id=414173070]
+position = Vector2(545, 319)
+scale = Vector2(0.43823037, 0.43012184)
+texture = ExtResource("2_702t5")
+
+[node name="CriarPartida" type="Button" parent="." unique_id=526020536]
+modulate = Color(0.011764706, 0.49803922, 1, 0.22745098)
+layout_mode = 0
+offset_left = 358.0
+offset_top = 218.0
+offset_right = 723.0
+offset_bottom = 308.0
+
+[node name="EntrarPartida" type="Button" parent="." unique_id=1770232627]
+modulate = Color(0.24705882, 1, 0.38431373, 0.43529412)
+layout_mode = 0
+offset_left = 359.0
+offset_top = 349.0
+offset_right = 729.0
+offset_bottom = 439.0
+
+[node name="Voltar" type="Button" parent="." unique_id=1383088415]
+modulate = Color(1, 1, 1, 0.39607844)
+layout_mode = 0
+offset_left = 476.0
+offset_top = 503.0
+offset_right = 606.0
+offset_bottom = 543.0

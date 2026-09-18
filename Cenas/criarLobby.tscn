@@ -1,0 +1,74 @@
+[gd_scene format=3 uid="uid://vemtdkmn1s4s"]
+
+[ext_resource type="Script" uid="uid://bbgbmeim34dfw" path="res://Scripts/CriarLobby.gd" id="1_2hbkc"]
+[ext_resource type="Texture2D" uid="uid://bsuca11uwlwu5" path="res://Imagens/criarLobby.png" id="2_dbivn"]
+
+[node name="CriarLobby" type="Control" unique_id=572575716]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_2hbkc")
+
+[node name="fundo" type="Sprite2D" parent="." unique_id=528540540]
+position = Vector2(575.99994, 324)
+scale = Vector2(0.6889951, 0.6865037)
+texture = ExtResource("2_dbivn")
+
+[node name="Criar" type="Button" parent="." unique_id=100326859]
+layout_mode = 0
+offset_left = 370.0
+offset_top = 471.0
+offset_right = 551.0
+offset_bottom = 509.0
+
+[node name="voltar" type="Button" parent="." unique_id=434275839]
+layout_mode = 0
+offset_left = 600.0
+offset_top = 472.0
+offset_right = 781.0
+offset_bottom = 510.0
+
+[node name="privacidade" type="OptionButton" parent="." unique_id=101032621]
+layout_mode = 0
+offset_left = 410.0
+offset_top = 325.0
+offset_right = 780.0
+offset_bottom = 355.0
+item_count = 2
+popup/item_0/text = "Publico"
+popup/item_0/id = 0
+popup/item_1/text = "Privado"
+popup/item_1/id = 1
+
+[node name="quantidadeJogadores" type="OptionButton" parent="." unique_id=385175617]
+layout_mode = 0
+offset_left = 411.0
+offset_top = 398.0
+offset_right = 781.0
+offset_bottom = 429.0
+item_count = 4
+popup/item_0/text = "1"
+popup/item_0/id = 0
+popup/item_1/text = "2"
+popup/item_1/id = 1
+popup/item_2/text = "3"
+popup/item_2/id = 2
+popup/item_3/text = "4"
+popup/item_3/id = 3
+
+[node name="nomeSala" type="LineEdit" parent="." unique_id=405601352]
+layout_mode = 0
+offset_left = 409.0
+offset_top = 182.0
+offset_right = 786.0
+offset_bottom = 213.0
+
+[node name="LineEdit2" type="LineEdit" parent="." unique_id=74205923]
+layout_mode = 0
+offset_left = 410.0
+offset_top = 253.0
+offset_right = 787.0
+offset_bottom = 284.0

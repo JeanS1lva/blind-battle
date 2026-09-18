@@ -1,0 +1,17 @@
+[gd_scene format=3 uid="uid://b7h4bypcxwevv"]
+
+[ext_resource type="Texture2D" uid="uid://d3qc3byuh7430" path="res://Personagens/guerreiro.png" id="1_5k4qg"]
+[ext_resource type="Script" uid="uid://bjgci3cjknt3q" path="res://Personagens/Guerreiro.gd" id="2_glqrr"]
+[ext_resource type="Texture2D" uid="uid://txk6ojhgekeb" path="res://Imagens/espada.png" id="3_yg4kp"]
+
+[node name="Guerreiro" type="Sprite2D" unique_id=367139648]
+
+[node name="Guerreiro" type="Sprite2D" parent="." unique_id=2080747896]
+scale = Vector2(0.96000004, 0.96000004)
+texture = ExtResource("1_5k4qg")
+script = ExtResource("2_glqrr")
+
+[node name="Espadada" type="Sprite2D" parent="Guerreiro" unique_id=601436339]
+visible = false
+position = Vector2(41.666664, 50)
+texture = ExtResource("3_yg4kp")

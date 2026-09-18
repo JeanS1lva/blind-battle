@@ -1,0 +1,60 @@
+[gd_scene format=3 uid="uid://c8r2hmcbbwnum"]
+
+[ext_resource type="Texture2D" uid="uid://dax84l4vcr1jn" path="res://Imagens/fundo.jpg" id="1_d2cro"]
+[ext_resource type="Texture2D" uid="uid://bk0x7ryy2tltp" path="res://tabuleiro.png" id="2_v77py"]
+[ext_resource type="Texture2D" uid="uid://ctm8uih3ixxjv" path="res://tabu.png" id="3_ui5xt"]
+[ext_resource type="Script" uid="uid://wxatcq0kjw35" path="res://grade.gd" id="4_ea43e"]
+[ext_resource type="Texture2D" uid="uid://64120rk43lk2" path="res://point.png" id="5_5um6g"]
+[ext_resource type="Script" uid="uid://didqybcr5nlr3" path="res://Cenas/gameplay.gd" id="6_v77py"]
+
+[node name="Tabuleiro" type="Node2D" unique_id=796910930]
+
+[node name="bordas" type="Sprite2D" parent="." unique_id=52336002]
+position = Vector2(573.9791, 321.1067)
+scale = Vector2(0.7757037, 0.7728531)
+texture = ExtResource("1_d2cro")
+
+[node name="Moldura" type="Sprite2D" parent="." unique_id=821724136]
+position = Vector2(523, 303.49997)
+scale = Vector2(0.46092504, 0.4601276)
+texture = ExtResource("2_v77py")
+
+[node name="matriz" type="Sprite2D" parent="." unique_id=1496418094]
+position = Vector2(523.50006, 307.49997)
+scale = Vector2(0.25049996, 0.24949996)
+texture = ExtResource("3_ui5xt")
+
+[node name="Grade" type="Node2D" parent="." unique_id=1058301842]
+position = Vector2(272, 56)
+script = ExtResource("4_ea43e")
+
+[node name="PointCaminho" type="Sprite2D" parent="Grade" unique_id=298353758]
+position = Vector2(226.5, 127)
+scale = Vector2(0.24496646, 0.29411763)
+texture = ExtResource("5_5um6g")
+
+[node name="log" type="Label" parent="Grade" unique_id=996355269]
+offset_left = 569.0
+offset_top = 380.0
+offset_right = 860.0
+offset_bottom = 535.0
+
+[node name="BotaoVoltar" type="Button" parent="." unique_id=1459907910]
+offset_left = 46.0
+offset_top = 15.0
+offset_right = 191.0
+offset_bottom = 46.0
+text = "Voltar"
+
+[node name="Gameplay" type="Node" parent="." unique_id=831498698]
+script = ExtResource("6_v77py")
+
+[node name="BotaoPular" type="Button" parent="." unique_id=4397763]
+offset_left = 844.0
+offset_top = 46.0
+offset_right = 918.0
+offset_bottom = 108.0
+text = "pular turno"
+
+[connection signal="pressed" from="BotaoVoltar" to="Grade" method="voltar_selecao_personagem"]
+[connection signal="pressed" from="BotaoVoltar" to="Grade" method="voltar"]

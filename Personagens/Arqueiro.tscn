@@ -1,0 +1,11 @@
+[gd_scene format=3 uid="uid://dtddxdgp01ijc"]
+
+[ext_resource type="Texture2D" uid="uid://bblhll6oxk3t" path="res://Personagens/arqueira.png" id="1_160oe"]
+[ext_resource type="Script" uid="uid://cjjf44y68cqrs" path="res://Personagens/Arqueiro.gd" id="2_1wt2h"]
+
+[node name="Arqueiro" type="Sprite2D" unique_id=686714051]
+
+[node name="Arqueiro" type="Sprite2D" parent="." unique_id=1236274264]
+scale = Vector2(0.96, 0.96)
+texture = ExtResource("1_160oe")
+script = ExtResource("2_1wt2h")

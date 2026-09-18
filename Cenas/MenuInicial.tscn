@@ -1,0 +1,68 @@
+[gd_scene format=3 uid="uid://cg3owkwd3xesr"]
+
+[ext_resource type="Script" uid="uid://cwl6stj3cqk1u" path="res://Cenas/menu_inicial.gd" id="1_ci3mi"]
+[ext_resource type="Texture2D" uid="uid://dax84l4vcr1jn" path="res://Imagens/fundo.jpg" id="1_j0xkd"]
+[ext_resource type="Texture2D" uid="uid://b4fdnde1pvult" path="res://Imagens/menu.jpg" id="2_rerow"]
+
+[node name="MenuInicial" type="Control" unique_id=1664691661]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_ci3mi")
+
+[node name="fundo" type="Sprite2D" parent="." unique_id=1578479487]
+position = Vector2(579, 329.00003)
+scale = Vector2(0.77500004, 0.7743098)
+texture = ExtResource("1_j0xkd")
+
+[node name="Borda" type="BoxContainer" parent="fundo" unique_id=900055495]
+offset_left = -298.0645
+offset_top = -309.9535
+offset_right = 215.48383
+offset_bottom = 355.1549
+
+[node name="Menu" type="Sprite2D" parent="fundo" unique_id=1570143155]
+position = Vector2(-40, 22.341377)
+scale = Vector2(0.64647806, 0.5623638)
+texture = ExtResource("2_rerow")
+
+[node name="Iniciar" type="Button" parent="fundo" unique_id=1246895476]
+offset_left = -175.48383
+offset_top = -28.412445
+offset_right = 100.64514
+offset_bottom = 3.8743591
+text = "Iniciar"
+
+[node name="Multiplayer" type="Button" parent="fundo" unique_id=1476869658]
+offset_left = -179.3548
+offset_top = 38.739502
+offset_right = 101.935486
+offset_bottom = 69.7395
+text = "Multiplayer"
+
+[node name="Configuracoes" type="Button" parent="fundo" unique_id=963688069]
+offset_left = -178.06451
+offset_top = 108.4837
+offset_right = 98.064514
+offset_bottom = 139.4837
+text = "Configurações"
+
+[node name="Sobre" type="Button" parent="fundo" unique_id=752801149]
+offset_left = -176.77417
+offset_top = 176.93176
+offset_right = 98.064514
+offset_bottom = 207.93176
+text = "Sobre"
+
+[node name="Sair" type="Button" parent="fundo" unique_id=195505221]
+offset_left = -174.19354
+offset_top = 244.08832
+offset_right = 98.064514
+offset_bottom = 275.08832
+text = "Sair"
+
+[connection signal="pressed" from="fundo/Iniciar" to="." method="_on_iniciar_pressed"]
+[connection signal="pressed" from="fundo/Multiplayer" to="." method="multiplayer"]
