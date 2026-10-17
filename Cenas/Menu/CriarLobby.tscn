@@ -19,6 +19,14 @@ position = Vector2(575.99994, 324)
 scale = Vector2(0.6889951, 0.6865037)
 texture = ExtResource("2_dbivn")
 
+[node name="Mensagem" type="Label" parent="Interface" unique_id=1473926427]
+offset_left = 309.0
+offset_top = 525.0
+offset_right = 851.0
+offset_bottom = 567.0
+horizontal_alignment = 1
+vertical_alignment = 1
+
 [node name="Formulário" type="Node" parent="." unique_id=2077744253]
 
 [node name="TipodeSala" type="OptionButton" parent="Formulário" unique_id=101032621]

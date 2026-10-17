@@ -1,95 +1,58 @@
 extends Control
 
-
-const PORTA := 9999
-
-
-var peer := ENetMultiplayerPeer.new()
-
-
 func _ready():
-	$Criar.pressed.connect(criar_lobby)
-	$voltar.pressed.connect(voltar)
+	# Conecta os botões usando a sua hierarquia
+	$Botões/Criar.pressed.connect(_ao_clicar_criar)
+	$Botões/Voltar.pressed.connect(voltar)
 
-	$nomeSala.placeholder_text = "Nome da sala"
-	$LineEdit2.placeholder_text = "Senha"
+	# Configurações visuais dos campos do formulário
+	$Formulário/NomeSala.placeholder_text = "Nome da sala"
+	$Formulário/Senha.placeholder_text = "Senha"
+	$Formulário/Senha.secret = true
 
-	# Esconde os caracteres da senha
-	$LineEdit2.secret = true
+	$Interface/Mensagem.text = ""
 
+	# Conecta aos sinais do gerenciador de lobbies
+	GerenciadorLobby.lobby_criado_sucesso.connect(_on_lobby_sucesso)
+	GerenciadorLobby.lobby_criado_falha.connect(_on_lobby_falha)
 
-func criar_lobby():
+func _ao_clicar_criar():
+	var nome_sala = $Formulário/NomeSala.text.strip_edges()
+	var senha = $Formulário/Senha.text
 
-	var nome_sala = $nomeSala.text.strip_edges()
-	var senha = $LineEdit2.text
+	var tipo_sala_idx = $Formulário/TipodeSala.selected
+	var tipo_sala = ""
+	if tipo_sala_idx != -1:
+		tipo_sala = $Formulário/TipodeSala.get_item_text(tipo_sala_idx)
 
-	var privacidade = $privacidade.get_item_text(
-		$privacidade.selected
-	)
+	var qtd_idx = $Formulário/QuantidadeJogadores.selected
+	var quantidade_jogadores = 4
+	if qtd_idx != -1:
+		quantidade_jogadores = int($Formulário/QuantidadeJogadores.get_item_text(qtd_idx))
 
-	var quantidade_jogadores = int(
-		$quantidadeJogadores.get_item_text(
-			$quantidadeJogadores.selected
-		)
-	)
-
-
-	# Verifica se foi colocado um nome
+	# Validação básica
 	if nome_sala == "":
-		print("Digite um nome para a sala.")
+		$Interface/Mensagem.text = "Digite um nome para a sala."
 		return
 
+	var sala_privada = (tipo_sala == "Privado")
 
-	# Verifica se o lobby é privado
-	var sala_privada = false
+	# Desativa o botão temporariamente para evitar cliques duplos enquanto a Steam processa
+	$Botões/Criar.disabled = true
+	$Interface/Mensagem.text = "Criando lobby na Steam..."
 
-	if privacidade == "Privado":
-		sala_privada = true
+	# Envia para o gerenciador da Steam
+	GerenciadorLobby.criar_lobby_steam(nome_sala, senha, sala_privada, quantidade_jogadores)
 
+func _on_lobby_sucesso():
+	$Interface/Mensagem.text = "Lobby criado com sucesso!"
+	# Vai para a cena do Lobby
+	get_tree().change_scene_to_file("res://Cenas/Lobby.tscn")
 
-	# Guarda as informações da sala
-	DadosJogo.nome_sala = nome_sala
-	DadosJogo.senha_sala = senha
-	DadosJogo.sala_privada = sala_privada
-	DadosJogo.max_jogadores = quantidade_jogadores
-
-
-	print("========== CRIANDO LOBBY ==========")
-	print("Nome: ", DadosJogo.nome_sala)
-	print("Senha: ", DadosJogo.senha_sala)
-	print("Privado: ", DadosJogo.sala_privada)
-	print("Máximo: ", DadosJogo.max_jogadores)
-
-
-	# Cria o servidor
-	var erro = peer.create_server(
-		PORTA,
-		DadosJogo.max_jogadores
-	)
-
-
-	if erro != OK:
-		print("ERRO AO CRIAR SERVIDOR: ", erro)
-		return
-
-
-	# Define este jogo como servidor
-	multiplayer.multiplayer_peer = peer
-
-
-	print("Servidor criado com sucesso!")
-	print("Você é o HOST.")
-	print("Porta: ", PORTA)
-
-
-	# Vai para o Lobby
-	get_tree().change_scene_to_file(
-		"res://Cenas/Lobby.tscn"
-	)
-
+func _on_lobby_falha(mensagem: String):
+	# Reativa o botão e mostra o erro no Label Mensagem
+	$Botões/Criar.disabled = false
+	$Interface/Mensagem.text = mensagem
 
 func voltar():
-
-	get_tree().change_scene_to_file(
-		"res://Cenas/Multiplayer.tscn"
-	)
+	get_tree().change_scene_to_file("res://Cenas/Menu/MenuMultiplayer.tscn")
