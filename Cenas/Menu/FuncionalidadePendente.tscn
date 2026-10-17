@@ -1,0 +1,20 @@
+[gd_scene format=3 uid="uid://cb2oaxp0a60g"]
+
+[ext_resource type="Script" uid="uid://kx2i1qem651m" path="res://Scripts/Menu/funcionalidade_pendente.gd" id="1_gu2nk"]
+[ext_resource type="Texture2D" uid="uid://w6fpnj0i4h1n" path="res://Recursos/Imagens/Menu/EmDesenvolvimento.png" id="2_qwa2h"]
+
+[node name="FuncionalidadePendente" type="Node2D" unique_id=229050928]
+script = ExtResource("1_gu2nk")
+
+[node name="Fundo" type="Sprite2D" parent="." unique_id=2008718789]
+position = Vector2(582.00006, 323)
+scale = Vector2(0.6883971, 0.6896918)
+texture = ExtResource("2_qwa2h")
+
+[node name="Voltar" type="Button" parent="." unique_id=570529194]
+offset_left = 51.0
+offset_top = 38.0
+offset_right = 198.0
+offset_bottom = 75.0
+
+[connection signal="pressed" from="Voltar" to="." method="_on_voltar_pressed"]
