@@ -25,6 +25,14 @@ window/size/mode=1
 window/stretch/mode="canvas_items"
 window/stretch/aspect="expand"
 
+[file_customization]
+
+folder_colors={
+"res://Cenas/": "orange",
+"res://Recursos/": "red",
+"res://Scripts/": "green"
+}
+
 [physics]
 
 3d/physics_engine="Jolt Physics"
