@@ -47,7 +47,7 @@ func _ao_clicar_criar():
 func _on_lobby_sucesso():
 	$Interface/Mensagem.text = "Lobby criado com sucesso!"
 	# Vai para a cena do Lobby
-	get_tree().change_scene_to_file("res://Cenas/Lobby.tscn")
+	get_tree().change_scene_to_file("res://Cenas/Menu/Lobby.tscn")
 
 func _on_lobby_falha(mensagem: String):
 	# Reativa o botão e mostra o erro no Label Mensagem

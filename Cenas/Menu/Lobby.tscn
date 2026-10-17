@@ -12,23 +12,25 @@ layout_mode = 3
 anchors_preset = 0
 script = ExtResource("1_boa8m")
 
-[node name="fundo" type="Sprite2D" parent="." unique_id=969010270]
+[node name="Interface" type="Node" parent="." unique_id=1893534665]
+
+[node name="Fundo" type="Sprite2D" parent="Interface" unique_id=969010270]
 position = Vector2(574, 324.00003)
 scale = Vector2(0.7810811, 0.7779113)
 texture = ExtResource("1_0ul5l")
 
-[node name="janela" type="Sprite2D" parent="." unique_id=443297990]
+[node name="Janela" type="Sprite2D" parent="Interface" unique_id=443297990]
 modulate = Color(0.78559786, 0.70402724, 0.5791405, 1)
 position = Vector2(575.49994, 328)
 scale = Vector2(0.43945307, 0.5507812)
 texture = ExtResource("2_7vk6w")
 
-[node name="Jogador1" type="Sprite2D" parent="." unique_id=1713337515]
+[node name="Jogador1" type="Sprite2D" parent="Interface" unique_id=1713337515]
 position = Vector2(343, 267)
 scale = Vector2(0.88, 0.9599994)
 texture = ExtResource("3_qay24")
 
-[node name="Pronto" type="Label" parent="Jogador1" unique_id=841760336]
+[node name="Pronto" type="Label" parent="Interface/Jogador1" unique_id=841760336]
 modulate = Color(0.5977723, 0.6464887, 0.5855049, 1)
 offset_left = 454.54544
 offset_top = -15.625
@@ -38,7 +40,7 @@ text = "Aguardando"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="labelJ1" type="Label" parent="Jogador1" unique_id=894975849]
+[node name="labelJ1" type="Label" parent="Interface/Jogador1" unique_id=894975849]
 modulate = Color(0.20784314, 1, 1, 1)
 offset_left = 54.54545
 offset_top = -14.583348
@@ -46,29 +48,30 @@ offset_right = 168.18182
 offset_bottom = 13.624995
 text = "Jogador 1"
 
-[node name="conectando" type="Label" parent="Jogador1" unique_id=1692801492]
+[node name="conectando" type="Label" parent="Interface/Jogador1" unique_id=1692801492]
 offset_left = 326.13635
 offset_top = -13.541668
 offset_right = 430.13635
 offset_bottom = 11.541676
 text = "online"
 
-[node name="pronto" type="Sprite2D" parent="Jogador1" unique_id=1886092436]
+[node name="pronto" type="Sprite2D" parent="Interface/Jogador1" unique_id=1886092436]
 position = Vector2(505.11365, 1.0416903)
 scale = Vector2(0.60433865, 0.8223688)
 texture = ExtResource("4_gmmmg")
 
-[node name="conectado" type="Sprite2D" parent="Jogador1" unique_id=209853479]
+[node name="conectado" type="Sprite2D" parent="Interface/Jogador1" unique_id=209853479]
 position = Vector2(305.11362, -1.1102027)
 scale = Vector2(0.7727243, 0.82785094)
 texture = ExtResource("5_gmmmg")
 
-[node name="Jogador2" type="Sprite2D" parent="." unique_id=754122241]
+[node name="Jogador2" type="Sprite2D" parent="Interface" unique_id=754122241]
+visible = false
 position = Vector2(343, 333)
 scale = Vector2(0.88, 0.9599994)
 texture = ExtResource("3_qay24")
 
-[node name="Pronto2" type="Label" parent="Jogador2" unique_id=823189066]
+[node name="Pronto2" type="Label" parent="Interface/Jogador2" unique_id=823189066]
 modulate = Color(0.5852468, 0.6473192, 0.6128315, 1)
 offset_left = 459.0909
 offset_top = -15.625
@@ -78,7 +81,7 @@ text = "Aguardando"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="labelJ2" type="Label" parent="Jogador2" unique_id=381359091]
+[node name="labelJ2" type="Label" parent="Interface/Jogador2" unique_id=381359091]
 modulate = Color(0.1882353, 1, 1, 1)
 offset_left = 52.272713
 offset_top = -14.583346
@@ -86,29 +89,30 @@ offset_right = 165.90909
 offset_bottom = 13.624997
 text = "Jogador 2"
 
-[node name="conectando2" type="Label" parent="Jogador2" unique_id=32938112]
+[node name="conectando2" type="Label" parent="Interface/Jogador2" unique_id=32938112]
 offset_left = 322.72723
 offset_top = -14.583338
 offset_right = 426.72723
 offset_bottom = 10.500006
 text = "conectando..."
 
-[node name="pronto2" type="Sprite2D" parent="Jogador2" unique_id=2037041203]
+[node name="pronto2" type="Sprite2D" parent="Interface/Jogador2" unique_id=2037041203]
 position = Vector2(504.54544, 1.0416718)
 scale = Vector2(0.60433865, 0.8223688)
 texture = ExtResource("4_gmmmg")
 
-[node name="conectado2" type="Sprite2D" parent="Jogador2" unique_id=1723473073]
+[node name="conectado2" type="Sprite2D" parent="Interface/Jogador2" unique_id=1723473073]
 position = Vector2(304.54544, -1.0416762)
 scale = Vector2(0.7727242, 0.82785094)
 texture = ExtResource("5_gmmmg")
 
-[node name="Jogador3" type="Sprite2D" parent="." unique_id=1646496959]
+[node name="Jogador3" type="Sprite2D" parent="Interface" unique_id=1646496959]
+visible = false
 position = Vector2(343, 401)
 scale = Vector2(0.88, 0.9599994)
 texture = ExtResource("3_qay24")
 
-[node name="Pronto3" type="Label" parent="Jogador3" unique_id=253059538]
+[node name="Pronto3" type="Label" parent="Interface/Jogador3" unique_id=253059538]
 modulate = Color(0.5852468, 0.6473192, 0.6128315, 1)
 offset_left = 459.0909
 offset_top = -15.625
@@ -118,7 +122,7 @@ text = "Aguardando"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="labelJ3" type="Label" parent="Jogador3" unique_id=2044828508]
+[node name="labelJ3" type="Label" parent="Interface/Jogador3" unique_id=2044828508]
 modulate = Color(0.1882353, 1, 1, 1)
 offset_left = 52.272713
 offset_top = -14.583346
@@ -126,29 +130,30 @@ offset_right = 165.90909
 offset_bottom = 13.624997
 text = "Jogador 3"
 
-[node name="conectando3" type="Label" parent="Jogador3" unique_id=1057469112]
+[node name="conectando3" type="Label" parent="Interface/Jogador3" unique_id=1057469112]
 offset_left = 322.72723
 offset_top = -14.583338
 offset_right = 426.72723
 offset_bottom = 10.500006
 text = "conectando..."
 
-[node name="pronto3" type="Sprite2D" parent="Jogador3" unique_id=2052366086]
+[node name="pronto3" type="Sprite2D" parent="Interface/Jogador3" unique_id=2052366086]
 position = Vector2(504.54544, 1.0416718)
 scale = Vector2(0.60433865, 0.8223688)
 texture = ExtResource("4_gmmmg")
 
-[node name="conectado3" type="Sprite2D" parent="Jogador3" unique_id=694340571]
+[node name="conectado3" type="Sprite2D" parent="Interface/Jogador3" unique_id=694340571]
 position = Vector2(304.54544, -1.0416762)
 scale = Vector2(0.7727242, 0.82785094)
 texture = ExtResource("5_gmmmg")
 
-[node name="Jogador4" type="Sprite2D" parent="." unique_id=2097862879]
+[node name="Jogador4" type="Sprite2D" parent="Interface" unique_id=2097862879]
+visible = false
 position = Vector2(343, 465.00003)
 scale = Vector2(0.88, 0.9599994)
 texture = ExtResource("3_qay24")
 
-[node name="Pronto4" type="Label" parent="Jogador4" unique_id=1131852025]
+[node name="Pronto4" type="Label" parent="Interface/Jogador4" unique_id=1131852025]
 modulate = Color(0.5852468, 0.6473192, 0.6128315, 1)
 offset_left = 459.0909
 offset_top = -15.625
@@ -158,7 +163,7 @@ text = "Aguardando"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="labelJ4" type="Label" parent="Jogador4" unique_id=612495001]
+[node name="labelJ4" type="Label" parent="Interface/Jogador4" unique_id=612495001]
 modulate = Color(0.1882353, 1, 1, 1)
 offset_left = 52.272713
 offset_top = -14.583346
@@ -166,45 +171,44 @@ offset_right = 165.90909
 offset_bottom = 13.624997
 text = "Jogador 4"
 
-[node name="conectando4" type="Label" parent="Jogador4" unique_id=81715069]
+[node name="conectando4" type="Label" parent="Interface/Jogador4" unique_id=81715069]
 offset_left = 322.72723
 offset_top = -14.583338
 offset_right = 426.72723
 offset_bottom = 10.500006
 text = "conectando..."
 
-[node name="pronto4" type="Sprite2D" parent="Jogador4" unique_id=1372051115]
+[node name="pronto4" type="Sprite2D" parent="Interface/Jogador4" unique_id=1372051115]
 position = Vector2(504.54544, 1.0416718)
 scale = Vector2(0.60433865, 0.8223688)
 texture = ExtResource("4_gmmmg")
 
-[node name="conectado4" type="Sprite2D" parent="Jogador4" unique_id=238547131]
+[node name="conectado4" type="Sprite2D" parent="Interface/Jogador4" unique_id=238547131]
 position = Vector2(304.54544, -1.0416762)
 scale = Vector2(0.7727242, 0.82785094)
 texture = ExtResource("5_gmmmg")
 
-[node name="StatusLobby" type="Label" parent="." unique_id=75096835]
-layout_mode = 0
+[node name="StatusLobby" type="Label" parent="Interface" unique_id=75096835]
 offset_left = 495.0
 offset_top = 175.0
 offset_right = 688.0
 offset_bottom = 198.0
 text = "Aguardando jogadores ..."
 
-[node name="voltar" type="Button" parent="." unique_id=2098537217]
+[node name="Botões" type="Node" parent="." unique_id=507788319]
+
+[node name="Voltar" type="Button" parent="Botões" unique_id=2098537217]
 modulate = Color(1, 1, 1, 0.2901961)
-layout_mode = 0
 offset_left = 300.0
 offset_top = 531.0
 offset_right = 465.0
 offset_bottom = 571.0
 
-[node name="BotaoPronto" type="Button" parent="." unique_id=98160211]
+[node name="BotaoPronto" type="Button" parent="Botões" unique_id=98160211]
 modulate = Color(0.101960786, 1, 0.06666667, 1)
 light_mask = 0
-layout_mode = 0
-offset_left = 685.0
-offset_top = 530.0
-offset_right = 853.0
+offset_left = 686.0
+offset_top = 528.0
+offset_right = 852.0
 offset_bottom = 570.0
 text = "Pronto"
