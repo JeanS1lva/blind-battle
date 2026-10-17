@@ -8,74 +8,33 @@ var peer := ENetMultiplayerPeer.new()
 
 
 func _ready():
-
-	# =====================================================
+	
 	# BOTÕES
-	# =====================================================
-
-	$CriarPartida.pressed.connect(criar_partida)
-	$EntrarPartida.pressed.connect(entrar_partida)
+	$CriarPartida.pressed.connect(ir_para_criar_lobby())
+	$EntrarPartida.pressed.connect(ir_procurar_lobbies())
 	$Voltar.pressed.connect(voltar)
 
-
-	# =====================================================
 	# SINAL DE CONEXÃO DO CLIENTE
-	# =====================================================
+	multiplayer.connected_to_server.connect(conectado_ao_servidor)
 
-	multiplayer.connected_to_server.connect(
-		conectado_ao_servidor
-	)
-
-	multiplayer.connection_failed.connect(
-		falha_na_conexao
-	)
+	multiplayer.connection_failed.connect(falha_na_conexao)
 
 
-# =========================================================
-# CRIAR PARTIDA
-# =========================================================
+# Ir para a cena de Criar Lobby
+func ir_para_criar_lobby():
+	get_tree().change_scene_to_file("res://Cenas/CriarLobby.tscn")
 
-func criar_partida():
-	get_tree().change_scene_to_file(
-		"res://Cenas/CriarLobby.tscn"
-	)
-
-
-# =========================================================
-# ENTRAR NA PARTIDA
-# =========================================================
-
-func entrar_partida():
-
-	print("Tentando entrar na partida...")
-
-
+# Procurar lobbies
+func ir_procurar_lobbies():
 	var endereco := "127.0.0.1"
-
-
-	var erro = peer.create_client(
-		endereco,
-		PORTA
-	)
-
+	var erro = peer.create_client(endereco, PORTA)
 
 	if erro != OK:
-
-		print(
-			"Erro ao entrar na partida: ",
-			erro
-		)
-
+		print("Erro ao entrar na partida: ", erro)
 		return
-
-
+		
 	# Define este jogo como CLIENTE
-
 	multiplayer.multiplayer_peer = peer
-
-
-	print("Conectando ao HOST...")
-
 
 # =========================================================
 # CONECTADO AO SERVIDOR
