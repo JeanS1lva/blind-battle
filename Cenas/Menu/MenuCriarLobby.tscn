@@ -46,15 +46,13 @@ offset_left = 411.0
 offset_top = 398.0
 offset_right = 781.0
 offset_bottom = 429.0
-item_count = 4
-popup/item_0/text = "1"
-popup/item_0/id = 0
-popup/item_1/text = "2"
-popup/item_1/id = 1
-popup/item_2/text = "3"
-popup/item_2/id = 2
-popup/item_3/text = "4"
-popup/item_3/id = 3
+item_count = 3
+popup/item_0/text = "2"
+popup/item_0/id = 1
+popup/item_1/text = "3"
+popup/item_1/id = 2
+popup/item_2/text = "4"
+popup/item_2/id = 3
 
 [node name="NomeSala" type="LineEdit" parent="Formulário" unique_id=405601352]
 offset_left = 409.0
