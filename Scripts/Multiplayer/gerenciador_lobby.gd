@@ -59,14 +59,14 @@ func atualizar_e_notificar_membros() -> void:
 	
 	lista_membros_atualizada.emit(lista_para_ui)
 
-func _ao_atualizar_chat_lobby(this_lobby_id: int, changed_id: int, making_change_id: int, chat_state: int) -> void:
+func _ao_atualizar_chat_lobby(this_lobby_id: int, _changed_id: int, _making_change_id: int, _chat_state: int) -> void:
 	if this_lobby_id != lobby_id_atual:
 		return
 	atualizar_e_notificar_membros()
 
 # Callback disparado quando qualquer dado do lobby muda na Steam
-# 3. No callback _ao_atualizar_dados_lobby, adicione a escuta para o início da partida
-func _ao_atualizar_dados_lobby(success: int, this_lobby_id: int, member_id: int) -> void:
+# No callback _ao_atualizar_dados_lobby, adicione a escuta para o início da partida
+func _ao_atualizar_dados_lobby(_success: int, this_lobby_id: int, _member_id: int) -> void:
 	if this_lobby_id != lobby_id_atual:
 		return
 		
@@ -100,7 +100,7 @@ func alternar_meu_status_pronto() -> void:
 	if novo_status == "true":
 		_verificar_se_todos_estao_prontos()
 
-# 2. Nova função para checar se todos os jogadores estão prontos
+# Nova função para checar se todos os jogadores estão prontos
 func _verificar_se_todos_estao_prontos() -> void:
 	var total_membros: int = Steam.getNumLobbyMembers(lobby_id_atual)
 	
