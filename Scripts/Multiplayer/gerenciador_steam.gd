@@ -3,6 +3,7 @@ extends Node
 var lobby_id_atual: int = 0
 var sou_host: bool = false
 var steam_inicializada: bool = false
+var mensagem_aviso_menu: String = ""
 
 func inicializar_steam() -> bool:
 	if steam_inicializada:

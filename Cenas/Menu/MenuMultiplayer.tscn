@@ -25,6 +25,13 @@ position = Vector2(545, 319)
 scale = Vector2(0.43823037, 0.43012184)
 texture = ExtResource("3_ab5e4")
 
+[node name="Mensagem" type="Label" parent="Interface" unique_id=962595636]
+offset_left = 841.0
+offset_top = 433.0
+offset_right = 1123.0
+offset_bottom = 609.0
+theme_override_font_sizes/font_size = 24
+
 [node name="Botões" type="Node" parent="." unique_id=30191714]
 
 [node name="CriarPartida" type="Button" parent="Botões" unique_id=526020536]
