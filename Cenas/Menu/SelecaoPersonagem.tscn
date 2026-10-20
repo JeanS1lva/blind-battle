@@ -17,39 +17,32 @@ grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_mq0ym")
 
-[node name="Borda" type="BoxContainer" parent="." unique_id=159693978]
-layout_mode = 0
-offset_left = 391.0
-offset_top = 77.0
-offset_right = 774.0
-offset_bottom = 549.0
-
-[node name="fundo" type="Sprite2D" parent="." unique_id=2023453421]
+[node name="Fundo" type="Sprite2D" parent="." unique_id=2023453421]
 position = Vector2(568.00006, 321)
 scale = Vector2(0.6378425, 0.7053572)
 texture = ExtResource("1_e1irb")
 
-[node name="guerreiro" type="Sprite2D" parent="." unique_id=2080189022]
+[node name="Guerreiro" type="Sprite2D" parent="." unique_id=2080189022]
 position = Vector2(293.5, 318.5)
 scale = Vector2(0.26222822, 0.27227014)
 texture = ExtResource("2_mq0ym")
 
-[node name="mago" type="Sprite2D" parent="." unique_id=44102253]
+[node name="Mago" type="Sprite2D" parent="." unique_id=44102253]
 position = Vector2(478.79892, 318.5)
 scale = Vector2(0.2588919, 0.26319447)
 texture = ExtResource("3_b16w7")
 
-[node name="assassino" type="Sprite2D" parent="." unique_id=774842937]
+[node name="Assassino" type="Sprite2D" parent="." unique_id=774842937]
 position = Vector2(653, 319)
 scale = Vector2(0.26222822, 0.26544943)
 texture = ExtResource("4_xm42q")
 
-[node name="arqueiro" type="Sprite2D" parent="." unique_id=744710106]
+[node name="Arqueiro" type="Sprite2D" parent="." unique_id=744710106]
 position = Vector2(843.00006, 319)
 scale = Vector2(0.26222822, 0.26544943)
 texture = ExtResource("5_5ekgp")
 
-[node name="nome" type="Sprite2D" parent="." unique_id=682329908]
+[node name="Título" type="Sprite2D" parent="." unique_id=682329908]
 position = Vector2(563, 89)
 scale = Vector2(0.12499998, 0.093909435)
 texture = ExtResource("6_yi6u6")
@@ -59,7 +52,7 @@ layout_mode = 0
 offset_left = 204.0
 offset_top = 51.0
 offset_right = 296.0
-offset_bottom = 77.0
+offset_bottom = 82.0
 text = "Voltar"
 
 [node name="Escolhas" type="Label" parent="." unique_id=346930883]
