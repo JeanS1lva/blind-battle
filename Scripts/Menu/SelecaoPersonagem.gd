@@ -24,10 +24,10 @@ var personagens_recebidos: Dictionary = {}
 # =========================================================
 
 @onready var personagens = [
-	$guerreiro,
-	$mago,
-	$assassino,
-	$arqueiro
+	$Guerreiro,
+	$Mago,
+	$Assassino,
+	$Arqueiro
 ]
 
 @onready var escolhas = $Escolhas

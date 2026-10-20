@@ -3,10 +3,10 @@ extends Node
 @onready var grade = get_parent().get_node("Grade")
 
 var cenas_personagens = {
-	"mago": preload("res://Personagens/Mago.tscn"),
-	"guerreiro": preload("res://Personagens/Guerreiro.tscn"),
-	"assassino": preload("res://Personagens/Assassino.tscn"),
-	"arqueiro": preload("res://Personagens/Arqueiro.tscn")
+	"mago": preload("res://Cenas/Personagens/Mago.tscn"),
+	"guerreiro": preload("res://Cenas/Personagens/Guerreiro.tscn"),
+	"assassino": preload("res://Cenas/Personagens/Assassino.tscn"),
+	"arqueiro": preload("res://Cenas/Personagens/Arqueiro.tscn"),
 }
 
 var meu_id: int = 0
