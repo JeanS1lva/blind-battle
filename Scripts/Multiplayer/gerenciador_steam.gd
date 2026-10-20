@@ -1,5 +1,7 @@
 extends Node
 
+var lobby_id_atual: int = 0
+var sou_host: bool = false
 var steam_inicializada: bool = false
 
 func inicializar_steam() -> bool:
@@ -13,3 +15,6 @@ func inicializar_steam() -> bool:
 
 	steam_inicializada = true
 	return true
+
+func _process(_delta: float) -> void:
+	Steam.run_callbacks()

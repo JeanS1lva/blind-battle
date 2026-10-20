@@ -12,11 +12,11 @@ func _ready():
 
 # Ir para a cena de Criar Lobby
 func ir_para_criar_lobby():
-	get_tree().change_scene_to_file("res://Cenas/Menu/CriarLobby.tscn")
+	get_tree().change_scene_to_file("res://Cenas/Menu/MenuCriarLobby.tscn")
 
 # Ir para a cena de Procurar Lobbies
 func ir_procurar_lobbies():
-	pass
+	get_tree().change_scene_to_file("res://Cenas/Menu/MenuProcurarLobby.tscn")
 
 # VOLTAR
 func voltar_ao_menu():

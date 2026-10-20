@@ -1,0 +1,45 @@
+[gd_scene format=3 uid="uid://dt8m40bdj17n"]
+
+[ext_resource type="Script" uid="uid://b57qkhwockogi" path="res://Scripts/Menu/menu_procurar_lobby.gd" id="1_udbf0"]
+[ext_resource type="Texture2D" uid="uid://dax84l4vcr1jn" path="res://Recursos/Imagens/Menu/fundo.jpg" id="2_vge8t"]
+[ext_resource type="Texture2D" uid="uid://bics7e02vwiqk" path="res://Recursos/Imagens/Menu/ListaLobbies.png" id="3_qmyg6"]
+[ext_resource type="Script" uid="uid://i2mnc3n5ubdd" path="res://Scripts/Multiplayer/procurar_lobby.gd" id="4_vge8t"]
+
+[node name="MenuProcurarLobby" type="Node2D" unique_id=1998406643]
+script = ExtResource("1_udbf0")
+
+[node name="Fundo" type="Sprite2D" parent="." unique_id=1836182072]
+position = Vector2(575, 327.5)
+scale = Vector2(0.7783783, 0.77671075)
+texture = ExtResource("2_vge8t")
+
+[node name="Menu" type="Sprite2D" parent="." unique_id=608032906]
+position = Vector2(578, 346)
+scale = Vector2(0.430323, 0.5729277)
+texture = ExtResource("3_qmyg6")
+
+[node name="ScrollContainer" type="ScrollContainer" parent="." unique_id=1143205175]
+offset_left = 267.0
+offset_top = 226.0
+offset_right = 895.0
+offset_bottom = 494.0
+
+[node name="VBoxContainer" type="VBoxContainer" parent="ScrollContainer" unique_id=1584578957]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="Voltar" type="Button" parent="." unique_id=2078431061]
+offset_left = 288.0
+offset_top = 522.0
+offset_right = 408.0
+offset_bottom = 560.0
+
+[node name="Mensagem" type="Label" parent="." unique_id=379530079]
+offset_left = 490.0
+offset_top = 512.0
+offset_right = 910.0
+offset_bottom = 581.0
+
+[node name="ProcurarLobby" type="Node" parent="." unique_id=52552076]
+script = ExtResource("4_vge8t")

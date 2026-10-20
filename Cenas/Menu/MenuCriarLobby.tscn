@@ -1,23 +1,24 @@
 [gd_scene format=3 uid="uid://vemtdkmn1s4s"]
 
-[ext_resource type="Script" uid="uid://bbgbmeim34dfw" path="res://Scripts/Menu/CriarLobby.gd" id="1_2hbkc"]
-[ext_resource type="Texture2D" uid="uid://bsuca11uwlwu5" path="res://Recursos/Imagens/Menu/criarLobby.png" id="2_dbivn"]
+[ext_resource type="Script" uid="uid://bbgbmeim34dfw" path="res://Scripts/Menu/MenuCriarLobby.gd" id="1_jxrvr"]
+[ext_resource type="Texture2D" uid="uid://bsuca11uwlwu5" path="res://Recursos/Imagens/Menu/criarLobby.png" id="2_maxmn"]
+[ext_resource type="Script" uid="uid://c0imn0j1c77e" path="res://Scripts/Multiplayer/criar_lobby.gd" id="3_maxmn"]
 
-[node name="CriarLobby" type="Control" unique_id=572575716]
+[node name="MenuCriarLobby" type="Control" unique_id=572575716]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-script = ExtResource("1_2hbkc")
+script = ExtResource("1_jxrvr")
 
 [node name="Interface" type="Node" parent="." unique_id=658050462]
 
 [node name="Fundo" type="Sprite2D" parent="Interface" unique_id=528540540]
 position = Vector2(575.99994, 324)
 scale = Vector2(0.6889951, 0.6865037)
-texture = ExtResource("2_dbivn")
+texture = ExtResource("2_maxmn")
 
 [node name="Mensagem" type="Label" parent="Interface" unique_id=1473926427]
 offset_left = 309.0
@@ -80,3 +81,6 @@ offset_left = 600.0
 offset_top = 472.0
 offset_right = 781.0
 offset_bottom = 510.0
+
+[node name="CriarLobby" type="Node" parent="." unique_id=1200418409]
+script = ExtResource("3_maxmn")

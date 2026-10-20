@@ -19,7 +19,6 @@ config/icon="res://icon.svg"
 
 DadosJogo="*uid://cpq01ggidcsh"
 GerenciadorSteam="*uid://cdih0tpuov73m"
-GerenciadorLobby="*uid://fpwnn5dem1u7"
 
 [display]
 
