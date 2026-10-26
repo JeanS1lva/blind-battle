@@ -3,10 +3,11 @@
 [ext_resource type="Texture2D" uid="uid://dax84l4vcr1jn" path="res://Recursos/Imagens/Menu/fundo.jpg" id="1_0ul5l"]
 [ext_resource type="Script" uid="uid://bjlac3uexemhc" path="res://Scripts/Menu/lobby.gd" id="1_boa8m"]
 [ext_resource type="Texture2D" uid="uid://bqjc3bomp46t7" path="res://Recursos/Imagens/Menu/lobby.png" id="2_7vk6w"]
-[ext_resource type="Texture2D" uid="uid://dvtcc0vdi7jfm" path="res://Recursos/Imagens/Efeitos/adagada.png" id="3_qay24"]
+[ext_resource type="Texture2D" uid="uid://dvtcc0vdi7jfm" path="res://Recursos/Imagens/Interface/icone_slot.png" id="3_qay24"]
 [ext_resource type="Texture2D" uid="uid://bfptmr23jppi" path="res://Recursos/Imagens/Interface/pronto.png" id="4_gmmmg"]
 [ext_resource type="Texture2D" uid="uid://ua4vfvpdfhb3" path="res://Recursos/Imagens/Interface/conectado.png" id="5_gmmmg"]
 [ext_resource type="Script" uid="uid://qblw5wyu5nv4" path="res://Scripts/Multiplayer/gerenciador_lobby.gd" id="7_m8cpe"]
+[ext_resource type="Script" uid="uid://dvswgpo8xicy" path="res://Scripts/Multiplayer/conexão_lobby.gd" id="8_0ih0d"]
 
 [node name="Lobby" type="Control" unique_id=943767841]
 layout_mode = 3
@@ -31,7 +32,7 @@ position = Vector2(343, 267)
 scale = Vector2(0.88, 0.9599994)
 texture = ExtResource("3_qay24")
 
-[node name="Aguardando" type="Label" parent="Interface/Jogador1" unique_id=841760336]
+[node name="TextodeMenu" type="Label" parent="Interface/Jogador1" unique_id=841760336]
 modulate = Color(0.5977723, 0.6464887, 0.5855049, 1)
 offset_left = 454.54544
 offset_top = -15.625
@@ -41,7 +42,7 @@ text = "Aguardando"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="LabelJ1" type="Label" parent="Interface/Jogador1" unique_id=894975849]
+[node name="Nick" type="Label" parent="Interface/Jogador1" unique_id=894975849]
 modulate = Color(0.20784314, 1, 1, 1)
 offset_left = 54.54545
 offset_top = -14.583348
@@ -49,20 +50,19 @@ offset_right = 168.18182
 offset_bottom = 13.624995
 text = "Jogador 1"
 
-[node name="Conectando" type="Label" parent="Interface/Jogador1" unique_id=1692801492]
+[node name="StatusOnline" type="Label" parent="Interface/Jogador1" unique_id=1692801492]
 offset_left = 326.13635
 offset_top = -13.541668
 offset_right = 430.13635
 offset_bottom = 11.541676
 text = "online"
 
-[node name="Pronto2" type="Sprite2D" parent="Interface/Jogador1" unique_id=1886092436]
-visible = false
+[node name="SpritePronto" type="Sprite2D" parent="Interface/Jogador1" unique_id=1886092436]
 position = Vector2(505.11365, 1.0416903)
 scale = Vector2(0.60433865, 0.8223688)
 texture = ExtResource("4_gmmmg")
 
-[node name="Conectado" type="Sprite2D" parent="Interface/Jogador1" unique_id=209853479]
+[node name="IconeOnline" type="Sprite2D" parent="Interface/Jogador1" unique_id=209853479]
 position = Vector2(305.11362, -1.1102027)
 scale = Vector2(0.7727243, 0.82785094)
 texture = ExtResource("5_gmmmg")
@@ -72,7 +72,7 @@ position = Vector2(343, 333)
 scale = Vector2(0.88, 0.9599994)
 texture = ExtResource("3_qay24")
 
-[node name="Aguardando" type="Label" parent="Interface/Jogador2" unique_id=823189066]
+[node name="TextodeMenu" type="Label" parent="Interface/Jogador2" unique_id=823189066]
 modulate = Color(0.5852468, 0.6473192, 0.6128315, 1)
 offset_left = 459.0909
 offset_top = -15.625
@@ -82,7 +82,8 @@ text = "Aguardando"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="LabelJ2" type="Label" parent="Interface/Jogador2" unique_id=381359091]
+[node name="Nick" type="Label" parent="Interface/Jogador2" unique_id=381359091]
+visible = false
 modulate = Color(0.1882353, 1, 1, 1)
 offset_left = 52.272713
 offset_top = -14.583346
@@ -90,20 +91,20 @@ offset_right = 165.90909
 offset_bottom = 13.624997
 text = "Jogador 2"
 
-[node name="Conectando" type="Label" parent="Interface/Jogador2" unique_id=32938112]
+[node name="StatusOnline" type="Label" parent="Interface/Jogador2" unique_id=32938112]
 offset_left = 322.72723
 offset_top = -14.583338
 offset_right = 426.72723
 offset_bottom = 10.500006
 text = "conectando..."
 
-[node name="Pronto2" type="Sprite2D" parent="Interface/Jogador2" unique_id=2037041203]
+[node name="SpritePronto" type="Sprite2D" parent="Interface/Jogador2" unique_id=2037041203]
 visible = false
 position = Vector2(504.54544, 1.0416718)
 scale = Vector2(0.60433865, 0.8223688)
 texture = ExtResource("4_gmmmg")
 
-[node name="Conectado" type="Sprite2D" parent="Interface/Jogador2" unique_id=1723473073]
+[node name="IconeOnline" type="Sprite2D" parent="Interface/Jogador2" unique_id=1723473073]
 visible = false
 position = Vector2(304.54544, -1.0416762)
 scale = Vector2(0.7727242, 0.82785094)
@@ -115,7 +116,7 @@ position = Vector2(343, 401)
 scale = Vector2(0.88, 0.9599994)
 texture = ExtResource("3_qay24")
 
-[node name="Aguardando" type="Label" parent="Interface/Jogador3" unique_id=253059538]
+[node name="TextodeMenu" type="Label" parent="Interface/Jogador3" unique_id=253059538]
 modulate = Color(0.5852468, 0.6473192, 0.6128315, 1)
 offset_left = 459.0909
 offset_top = -15.625
@@ -125,7 +126,7 @@ text = "Aguardando"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="LabelJ3" type="Label" parent="Interface/Jogador3" unique_id=2044828508]
+[node name="Nick" type="Label" parent="Interface/Jogador3" unique_id=2044828508]
 modulate = Color(0.1882353, 1, 1, 1)
 offset_left = 52.272713
 offset_top = -14.583346
@@ -133,19 +134,19 @@ offset_right = 165.90909
 offset_bottom = 13.624997
 text = "Jogador 3"
 
-[node name="Conectando" type="Label" parent="Interface/Jogador3" unique_id=1057469112]
+[node name="StatusOnline" type="Label" parent="Interface/Jogador3" unique_id=1057469112]
 offset_left = 322.72723
 offset_top = -14.583338
 offset_right = 426.72723
 offset_bottom = 10.500006
 text = "conectando..."
 
-[node name="Pronto2" type="Sprite2D" parent="Interface/Jogador3" unique_id=2052366086]
+[node name="SpritePronto" type="Sprite2D" parent="Interface/Jogador3" unique_id=2052366086]
 position = Vector2(504.54544, 1.0416718)
 scale = Vector2(0.60433865, 0.8223688)
 texture = ExtResource("4_gmmmg")
 
-[node name="Conectado" type="Sprite2D" parent="Interface/Jogador3" unique_id=694340571]
+[node name="IconeOnline" type="Sprite2D" parent="Interface/Jogador3" unique_id=694340571]
 position = Vector2(304.54544, -1.0416762)
 scale = Vector2(0.7727242, 0.82785094)
 texture = ExtResource("5_gmmmg")
@@ -156,7 +157,7 @@ position = Vector2(343, 465.00003)
 scale = Vector2(0.88, 0.9599994)
 texture = ExtResource("3_qay24")
 
-[node name="Aguardando" type="Label" parent="Interface/Jogador4" unique_id=1131852025]
+[node name="TextodeMenu" type="Label" parent="Interface/Jogador4" unique_id=1131852025]
 modulate = Color(0.5852468, 0.6473192, 0.6128315, 1)
 offset_left = 459.0909
 offset_top = -15.625
@@ -166,7 +167,7 @@ text = "Aguardando"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="LabelJ4" type="Label" parent="Interface/Jogador4" unique_id=612495001]
+[node name="Nick" type="Label" parent="Interface/Jogador4" unique_id=612495001]
 modulate = Color(0.1882353, 1, 1, 1)
 offset_left = 52.272713
 offset_top = -14.583346
@@ -174,19 +175,19 @@ offset_right = 165.90909
 offset_bottom = 13.624997
 text = "Jogador 4"
 
-[node name="Conectando" type="Label" parent="Interface/Jogador4" unique_id=81715069]
+[node name="StatusOnline" type="Label" parent="Interface/Jogador4" unique_id=81715069]
 offset_left = 322.72723
 offset_top = -14.583338
 offset_right = 426.72723
 offset_bottom = 10.500006
 text = "conectando..."
 
-[node name="Pronto2" type="Sprite2D" parent="Interface/Jogador4" unique_id=1372051115]
+[node name="SpritePronto" type="Sprite2D" parent="Interface/Jogador4" unique_id=1372051115]
 position = Vector2(504.54544, 1.0416718)
 scale = Vector2(0.60433865, 0.8223688)
 texture = ExtResource("4_gmmmg")
 
-[node name="Conectado" type="Sprite2D" parent="Interface/Jogador4" unique_id=238547131]
+[node name="IconeOnline" type="Sprite2D" parent="Interface/Jogador4" unique_id=238547131]
 position = Vector2(304.54544, -1.0416762)
 scale = Vector2(0.7727242, 0.82785094)
 texture = ExtResource("5_gmmmg")
@@ -197,6 +198,13 @@ offset_top = 175.0
 offset_right = 688.0
 offset_bottom = 198.0
 text = "Aguardando jogadores ..."
+
+[node name="Button" type="Button" parent="Interface" unique_id=1451642669]
+offset_left = 838.0
+offset_top = 259.0
+offset_right = 1142.0
+offset_bottom = 381.0
+text = "wwwwwwww"
 
 [node name="Botões" type="Node" parent="." unique_id=507788319]
 
@@ -218,3 +226,8 @@ text = "Pronto"
 
 [node name="GerenciadorLobby" type="Node" parent="." unique_id=2056977488]
 script = ExtResource("7_m8cpe")
+
+[node name="ConexãoLobby" type="Node" parent="GerenciadorLobby" unique_id=1756217804]
+script = ExtResource("8_0ih0d")
+
+[connection signal="pressed" from="Interface/Button" to="." method="_on_button_pressed"]

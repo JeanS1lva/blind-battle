@@ -74,10 +74,10 @@ var jogador4_coluna: int = 0
 # =========================================================
 
 var cenas_personagens = {
-	"mago": preload("res://Personagens/Mago.tscn"),
-	"guerreiro": preload("res://Personagens/Guerreiro.tscn"),
-	"assassino": preload("res://Personagens/Assassino.tscn"),
-	"arqueiro": preload("res://Personagens/Arqueiro.tscn")
+	"mago": preload("res://Cenas/Personagens/Mago.tscn"),
+	"guerreiro": preload("res://Cenas/Personagens/Guerreiro.tscn"),
+	"assassino": preload("res://Cenas/Personagens/Assassino.tscn"),
+	"arqueiro": preload("res://Cenas/Personagens/Arqueiro.tscn")
 }
 
 # =========================================================
@@ -133,12 +133,12 @@ var lista_itens: Array[String] = [
 ]
 
 var textura_fechada = preload(
-	"res://imagens/itens/casa_fechada.jpg"
+	"res://Recursos/Imagens/Itens/casa_fechada.jpg"
 )
 
 var texturas_itens = {
 	"trofeu":
-		preload("res://imagens/itens/trofeu.png"),
+		preload("res://Recursos/Imagens/Itens/trofeu.png"),
 
 	"tinta":
 		preload("res://imagens/itens/tinta.png"),
@@ -459,8 +459,7 @@ func revelar_item():
 		return
 
 	var casa_atual = Vector2i(
-		jogador_local_linha,
-		jogador_local_coluna
+		jogador_local_linha, jogador_local_coluna
 	)
 
 	if not itens_escondidos.has(casa_atual):

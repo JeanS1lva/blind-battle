@@ -9,7 +9,7 @@
 
 [node name="Tabuleiro" type="Node2D" unique_id=796910930]
 
-[node name="bordas" type="Sprite2D" parent="." unique_id=52336002]
+[node name="Fundo" type="Sprite2D" parent="." unique_id=52336002]
 position = Vector2(573.9791, 321.1067)
 scale = Vector2(0.7757037, 0.7728531)
 texture = ExtResource("1_xgd11")
@@ -19,7 +19,7 @@ position = Vector2(523, 303.49997)
 scale = Vector2(0.46092504, 0.4601276)
 texture = ExtResource("2_mueoy")
 
-[node name="matriz" type="Sprite2D" parent="." unique_id=1496418094]
+[node name="Matriz" type="Sprite2D" parent="." unique_id=1496418094]
 position = Vector2(523.50006, 307.49997)
 scale = Vector2(0.25049996, 0.24949996)
 texture = ExtResource("3_4ai2t")
@@ -56,5 +56,5 @@ offset_right = 918.0
 offset_bottom = 108.0
 text = "pular turno"
 
-[connection signal="pressed" from="BotaoVoltar" to="Grade" method="voltar"]
 [connection signal="pressed" from="BotaoVoltar" to="Grade" method="voltar_selecao_personagem"]
+[connection signal="pressed" from="BotaoVoltar" to="Grade" method="voltar"]

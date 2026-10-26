@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dluc3l4qmth1y"
-path="res://.godot/imported/flecha.jpg-d5e676b99ba0b5b255be35c0194a12af.ctex"
+uid="uid://cq8ape2phpldo"
+path="res://.godot/imported/ataque_extra.png-e18f4601911799efcf60a757eae8b28c.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Recursos/Imagens/Efeitos/flecha.jpg"
-dest_files=["res://.godot/imported/flecha.jpg-d5e676b99ba0b5b255be35c0194a12af.ctex"]
+source_file="res://Recursos/Imagens/Itens/ataque_extra.png"
+dest_files=["res://.godot/imported/ataque_extra.png-e18f4601911799efcf60a757eae8b28c.ctex"]
 
 [params]
 

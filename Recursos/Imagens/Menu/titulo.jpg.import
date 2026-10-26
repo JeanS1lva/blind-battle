@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bqvbakb014i1"
-path="res://.godot/imported/investida.png-0255e3c9b42b284e778b891e3ad22bc6.ctex"
+uid="uid://cpirnl020am8"
+path="res://.godot/imported/titulo.jpg-866459ff6472e21bb40e890cf34cb244.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Recursos/Imagens/Efeitos/investida.png"
-dest_files=["res://.godot/imported/investida.png-0255e3c9b42b284e778b891e3ad22bc6.ctex"]
+source_file="res://Recursos/Imagens/Menu/titulo.jpg"
+dest_files=["res://.godot/imported/titulo.jpg-866459ff6472e21bb40e890cf34cb244.ctex"]
 
 [params]
 

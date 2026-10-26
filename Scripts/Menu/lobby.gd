@@ -1,103 +1,99 @@
 extends Control
 
 @onready var status_lobby: Label = $"Interface/StatusLobby"
+@onready var gerenciador_lobby: Node = $"GerenciadorLobby"
 
-@onready var jogadores: Array = [
+@onready var jogadores_ui: Array = [
 	$"Interface/Jogador1",
 	$"Interface/Jogador2",
 	$"Interface/Jogador3",
 	$"Interface/Jogador4"
 ]
 
-@onready var botao_voltar: Button = $"Botões/Voltar"
-@onready var botao_pronto: Button = $"Botões/BotaoPronto"
-@onready var gerenciador_lobby: Node = $"GerenciadorLobby"
-
-var lobby_id_atual: int = 0
+# Variável de controle local para a capacidade máxima de jogadores nesta sala
+var max_jogadores_sala: int = 4
 
 func _ready() -> void:
-	botao_voltar.pressed.connect(_ao_clicar_voltar)
-	botao_pronto.pressed.connect(_ao_clicar_pronto)
+	# 1. Define o limite máximo da sala
+	max_jogadores_sala = GerenciadorSteam.max_jogadores_atual
 	
-	if "lobby_id_atual" in GerenciadorSteam:
-		lobby_id_atual = GerenciadorSteam.lobby_id_atual
+	# 2. Configura a visibilidade dos slots uma única vez no início
+	_inicializar_visibilidade_slots_ocupaveis()
 	
-	# Conecta a atualização reativa de membros vinda do GerenciadorLobby
+	# 3. Conecta o sinal para receber as alterações dinâmicas da rede/gerenciador
 	if gerenciador_lobby:
-		gerenciador_lobby.lista_membros_atualizada.connect(atualizar_lista_jogadores_ui)
-		
-		# GARANTIA PARA O CLIENTE: Força a leitura inicial dos membros assim que a UI estiver pronta
-		gerenciador_lobby.atualizar_e_notificar_membros()
-	
-	inicializar_interface_lobby()
+		gerenciador_lobby.dados_atualizados.connect(_atualizar_interface_jogadores)
 
-func inicializar_interface_lobby() -> void:
-	if lobby_id_atual == 0:
-		status_lobby.text = "Erro: ID do lobby inválido."
-		return
-		
-	var nome_sala: String = Steam.getLobbyData(lobby_id_atual, "name")
-	var max_jogadores: int = Steam.getLobbyMemberLimit(lobby_id_atual)
-	
-	status_lobby.text = "Sala: %s (Máx: %d)" % [nome_sala, max_jogadores]
+# Executado APENAS uma vez na inicialização da cena
+func _inicializar_visibilidade_slots_ocupaveis() -> void:
+	for i in range(jogadores_ui.size()):
+		var slot = jogadores_ui[i]
+		slot.visible = (i < max_jogadores_sala)
 
-# Função visual que recebe a lista de jogadores conectados e atualiza os slots na tela
-func atualizar_lista_jogadores_ui(membros: Array) -> void:
-	var max_jogadores: int = Steam.getLobbyMemberLimit(lobby_id_atual)
+# Maestro dinâmico: distribui os dados conforme os jogadores entram/saem
+func _atualizar_interface_jogadores(jogadores: Dictionary) -> void:
+	print("DEBUG [LobbyUI]: Sinal 'dados_atualizados' RECEBIDO! Dicionário recebido: ", jogadores)
+	var indices = jogadores.keys()
+	print("DEBUG [LobbyUI]: Chaves (IDs) no dicionário: ", indices, " | Tamanho: ", indices.size())
+	print("DEBUG [LobbyUI]: max_jogadores_sala atual: ", max_jogadores_sala)
 	
-	for i in range(jogadores.size()):
-		var slot_nodo = jogadores[i]
+	for i in range(max_jogadores_sala):
+		var slot = jogadores_ui[i]
+		print("DEBUG [LobbyUI]: Analisando slot índice ", i, " -> Caminho/Nome do slot: ", slot.name)
 		
-		if i < max_jogadores:
-			slot_nodo.visible = true # Exibe slot se estiver dentro da capacidade
-			
-			if i < membros.size():
-				# Jogador conectado real
-				var info_membro = membros[i]
-				var nome_membro: String = info_membro["nome"]
-				var esta_pronto: bool = info_membro["pronto"]
-				
-				_atualizar_estado_jogador(i, true, esta_pronto, nome_membro)
-			else:
-				# Vaga aberta no lobby
-				_atualizar_estado_jogador(i, false, false, "Aguardando...")
+		if i < indices.size():
+			var id_jogador = indices[i]
+			var dados = jogadores[id_jogador]
+			print("DEBUG [LobbyUI]: -> Slot ", i, " OCUPADO por ID ", id_jogador, " (Nome: ", dados["nome"], ")")
+			_configurar_slot_ocupado(slot, dados["nome"], dados["pronto"])
 		else:
-			# Oculta slots acima do limite da sala
-			slot_nodo.visible = false
+			print("DEBUG [LobbyUI]: -> Slot ", i, " VAZIO.")
+			_configurar_slot_vazio(slot)
 
-func _atualizar_estado_jogador(indice: int, conectado: bool, pronto: bool, nome_jogador: String) -> void:
-	var nodo_jogador = jogadores[indice]
-	
-	var lbl_aguardando: Label = nodo_jogador.get_node("Aguardando")
-	var lbl_nome: Label = nodo_jogador.get_node("LabelJ%d" % (indice + 1))
-	var lbl_conectando: Label = nodo_jogador.get_node("Conectando")
-	var spr_pronto2: Sprite2D = nodo_jogador.get_node("Pronto2")
-	var spr_conectado: Sprite2D = nodo_jogador.get_node("Conectado")
-	
-	if lbl_nome:
-		lbl_nome.text = nome_jogador
-		
-	if lbl_aguardando:
-		lbl_aguardando.visible = true
-	
-	# Controle visual do Sprite 'Conectado' vs Label 'Conectando'
-	if conectado:
-		if spr_conectado: spr_conectado.visible = true
-		if lbl_conectando: lbl_conectando.visible = false
+# Configura visualmente um slot OCUPADO
+func _configurar_slot_ocupado(slot: Node, nome_jogador: String, esta_pronto: bool) -> void:
+	_definir_label(slot, "Nick", true, nome_jogador)
+	_definir_label(slot, "StatusOnline", true, "online")
+	_definir_sprite(slot, "IconeOnline", true)
+	_definir_sprite(slot, "SpritePronto", esta_pronto)
+
+# Configura visualmente um slot VAZIO / DISPONÍVEL
+func _configurar_slot_vazio(slot: Node) -> void:
+	_definir_label(slot, "Nick", false, "")
+	_definir_label(slot, "StatusOnline", true, "conectando")
+	_definir_sprite(slot, "IconeOnline", false)
+	_definir_sprite(slot, "SpritePronto", false)
+
+# ==============================================================================
+# FUNÇÕES MODULARES ATÔMICAS (AUXILIARES)
+# ==============================================================================
+
+# Funções auxiliares com aviso caso o nó filho não exista
+func _definir_label(slot: Node, nome_no: String, mostrar: bool, texto: String) -> void:
+	var lbl: Label = slot.get_node_or_null(nome_no)
+	if lbl == null:
+		print("⚠️ AVISO DE DEBUG [LobbyUI]: Nó Label '", nome_no, "' NÃO FOI ENCONTRADO dentro de ", slot.name)
 	else:
-		if spr_conectado: spr_conectado.visible = false
-		if lbl_conectando: lbl_conectando.visible = true
-		
-	# Controle do Sprite de Pronto
-	if spr_pronto2:
-		spr_pronto2.visible = pronto
+		print("-> Sucesso: Label '", nome_no, "' encontrado em ", slot.name, " | Texto configurado para: '", texto, "'")
+	
+	if lbl:
+		lbl.text = texto
+		lbl.visible = mostrar
 
-func _ao_clicar_pronto() -> void:
-	if gerenciador_lobby:
-		gerenciador_lobby.alternar_meu_status_pronto()
+func _definir_sprite(slot: Node, nome_no: String, mostrar: bool) -> void:
+	var spr: Sprite2D = slot.get_node_or_null(nome_no)
+	if spr == null:
+		print("⚠️ AVISO DE DEBUG [LobbyUI]: Nó Sprite2D '", nome_no, "' NÃO FOI ENCONTRADO dentro de ", slot.name)
+	
+	if spr:
+		spr.visible = mostrar
 
-func _ao_clicar_voltar() -> void:
-	if gerenciador_lobby:
-		gerenciador_lobby.sair_ou_deletar_lobby()
-		
-	get_tree().change_scene_to_file("res://Cenas/Menu/MenuMultiplayer.tscn")
+func _on_button_pressed() -> void:
+	print("--- TESTE MANUAL DE CLIENTE ---")
+	print("Meu ID local: ", multiplayer.get_unique_id())
+	print("Sou server?: ", multiplayer.is_server())
+	print("Meu nick: ", GerenciadorSteam.meu_nick_steam)
+	
+	# Tenta chamar o RPC manualmente para o Host
+	if not GerenciadorSteam.sou_host:
+		gerenciador_lobby.rpc_solicitar_entrada.rpc_id(1, multiplayer.get_unique_id(), GerenciadorSteam.meu_nick_steam)

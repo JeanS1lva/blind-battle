@@ -61,7 +61,7 @@ func tentar_entrar_no_lobby(lobby_id: int) -> void:
 	Steam.joinLobby(lobby_id)
 
 # --- CALLBACK DE RESPOSTA DA STEAM AO TENTAR ENTRAR ---
-func _ao_receber_resposta_entrada(lobby_id: int, permissions: int, locked: bool, response: int) -> void:
+func _ao_receber_resposta_entrada(lobby_id: int, _permissions: int, _locked: bool, response: int) -> void:
 	# O 'response' com valor 1 (CHAT_ROOM_ENTER_RESPONSE_SUCCESS) indica sucesso
 	if response == 1:
 		print("Entrada no lobby realizada com sucesso!")
@@ -69,6 +69,11 @@ func _ao_receber_resposta_entrada(lobby_id: int, permissions: int, locked: bool,
 		# Salva os dados no Autoload do GerenciadorSteam
 		GerenciadorSteam.lobby_id_atual = lobby_id
 		GerenciadorSteam.sou_host = false # Como entramos na sala de outro, não somos o host
+		
+		var sucesso_rede = GerenciadorSteam.iniciar_cliente_steam(lobby_id)
+		if not sucesso_rede:
+			erro_ao_entrar.emit("Falha ao conectar na rede P2P da sala.")
+			return
 		
 		# Muda para a cena do Lobby
 		get_tree().change_scene_to_file("res://Cenas/Menu/Lobby.tscn")

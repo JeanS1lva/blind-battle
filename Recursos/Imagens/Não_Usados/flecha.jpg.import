@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dvtcc0vdi7jfm"
-path="res://.godot/imported/adagada.png-c37b0b4b2262aadf0a58a553bdbaa611.ctex"
+uid="uid://dluc3l4qmth1y"
+path="res://.godot/imported/flecha.jpg-f0fb434495bed5d873ad462f29aa7967.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Recursos/Imagens/Efeitos/adagada.png"
-dest_files=["res://.godot/imported/adagada.png-c37b0b4b2262aadf0a58a553bdbaa611.ctex"]
+source_file="res://Recursos/Imagens/Não_Usados/flecha.jpg"
+dest_files=["res://.godot/imported/flecha.jpg-f0fb434495bed5d873ad462f29aa7967.ctex"]
 
 [params]
 

@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cq8ape2phpldo"
-path="res://.godot/imported/ataque_extra.png-32403ebf6d7f6681f1ad289ce2dd6530.ctex"
+uid="uid://dlpocdc6mggji"
+path="res://.godot/imported/tropeco.png-b4045809c6388404a7cc8e5bf0bf90fb.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Recursos/Imagens/Efeitos/ataque_extra.png"
-dest_files=["res://.godot/imported/ataque_extra.png-32403ebf6d7f6681f1ad289ce2dd6530.ctex"]
+source_file="res://Recursos/Imagens/Itens/tropeco.png"
+dest_files=["res://.godot/imported/tropeco.png-b4045809c6388404a7cc8e5bf0bf90fb.ctex"]
 
 [params]
 

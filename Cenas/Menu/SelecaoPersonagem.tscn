@@ -6,7 +6,9 @@
 [ext_resource type="Texture2D" uid="uid://we8g2y45np4j" path="res://Recursos/Imagens/Personagens/Retratos/mago.jpg" id="3_b16w7"]
 [ext_resource type="Texture2D" uid="uid://dxs1lmhu23fua" path="res://Recursos/Imagens/Personagens/Retratos/assassino.jpg" id="4_xm42q"]
 [ext_resource type="Texture2D" uid="uid://2xphwb2a3nia" path="res://Recursos/Imagens/Personagens/Retratos/arqueiro.jpg" id="5_5ekgp"]
-[ext_resource type="Texture2D" uid="uid://cpirnl020am8" path="res://Recursos/Imagens/Menu/tittle.jpg" id="6_yi6u6"]
+[ext_resource type="Script" uid="uid://yv2407a70iv6" path="res://Scripts/Componentes/retrato.gd" id="5_hi7bh"]
+[ext_resource type="Texture2D" uid="uid://cpirnl020am8" path="res://Recursos/Imagens/Menu/titulo.jpg" id="6_yi6u6"]
+[ext_resource type="Script" uid="uid://i6dclkxkpacp" path="res://Scripts/Multiplayer/gerenciador_selecao.gd" id="9_vsunx"]
 
 [node name="SelecaoPersonagem" type="Control" unique_id=643827488]
 layout_mode = 3
@@ -21,26 +23,6 @@ script = ExtResource("1_mq0ym")
 position = Vector2(568.00006, 321)
 scale = Vector2(0.6378425, 0.7053572)
 texture = ExtResource("1_e1irb")
-
-[node name="Guerreiro" type="Sprite2D" parent="." unique_id=2080189022]
-position = Vector2(293.5, 318.5)
-scale = Vector2(0.26222822, 0.27227014)
-texture = ExtResource("2_mq0ym")
-
-[node name="Mago" type="Sprite2D" parent="." unique_id=44102253]
-position = Vector2(478.79892, 318.5)
-scale = Vector2(0.2588919, 0.26319447)
-texture = ExtResource("3_b16w7")
-
-[node name="Assassino" type="Sprite2D" parent="." unique_id=774842937]
-position = Vector2(653, 319)
-scale = Vector2(0.26222822, 0.26544943)
-texture = ExtResource("4_xm42q")
-
-[node name="Arqueiro" type="Sprite2D" parent="." unique_id=744710106]
-position = Vector2(843.00006, 319)
-scale = Vector2(0.26222822, 0.26544943)
-texture = ExtResource("5_5ekgp")
 
 [node name="Título" type="Sprite2D" parent="." unique_id=682329908]
 position = Vector2(563, 89)
@@ -61,8 +43,48 @@ offset_left = 405.0
 offset_top = 514.0
 offset_right = 807.0
 offset_bottom = 563.0
-text = "Personagem Escolhido: Arqueiro
-Aguardando jogadores..."
+text = "Escolha seu personagem"
 horizontal_alignment = 1
+
+[node name="Retratos" type="HBoxContainer" parent="." unique_id=2021001255]
+layout_mode = 0
+offset_left = 197.0
+offset_top = 127.0
+offset_right = 935.0
+offset_bottom = 508.0
+
+[node name="Guerreiro" type="TextureRect" parent="Retratos" unique_id=1510742516]
+layout_mode = 2
+size_flags_horizontal = 3
+texture = ExtResource("2_mq0ym")
+expand_mode = 1
+script = ExtResource("5_hi7bh")
+
+[node name="Mago" type="TextureRect" parent="Retratos" unique_id=636591838]
+layout_mode = 2
+size_flags_horizontal = 3
+texture = ExtResource("3_b16w7")
+expand_mode = 1
+script = ExtResource("5_hi7bh")
+nome_personagem = "mago"
+
+[node name="Assassino" type="TextureRect" parent="Retratos" unique_id=185559431]
+layout_mode = 2
+size_flags_horizontal = 3
+texture = ExtResource("4_xm42q")
+expand_mode = 1
+script = ExtResource("5_hi7bh")
+nome_personagem = "assassino"
+
+[node name="Arqueiro" type="TextureRect" parent="Retratos" unique_id=79809374]
+layout_mode = 2
+size_flags_horizontal = 3
+texture = ExtResource("5_5ekgp")
+expand_mode = 1
+script = ExtResource("5_hi7bh")
+nome_personagem = "arqueiro"
+
+[node name="GerenciadorSelecao" type="Node" parent="." unique_id=1615268121]
+script = ExtResource("9_vsunx")
 
 [connection signal="pressed" from="Voltar" to="." method="voltar"]

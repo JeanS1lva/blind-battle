@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dlpocdc6mggji"
-path="res://.godot/imported/tropeco.png-fd75a0b31e51e7514e1f8716dbabe6c7.ctex"
+uid="uid://bqvbakb014i1"
+path="res://.godot/imported/investida.png-d76c8a7cd16dc4898ba5465d3877fdd2.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Recursos/Imagens/Efeitos/tropeco.png"
-dest_files=["res://.godot/imported/tropeco.png-fd75a0b31e51e7514e1f8716dbabe6c7.ctex"]
+source_file="res://Recursos/Imagens/Itens/investida.png"
+dest_files=["res://.godot/imported/investida.png-d76c8a7cd16dc4898ba5465d3877fdd2.ctex"]
 
 [params]
 

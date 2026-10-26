@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://c8xc4t6kpkisj"
-path="res://.godot/imported/fireball.png-49cb8f5aea6700209327792cef994e09.ctex"
+uid="uid://txk6ojhgekeb"
+path="res://.godot/imported/espada.png-a62920cff2042773ffc213b87a0084ba.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Recursos/Imagens/Efeitos/fireball.png"
-dest_files=["res://.godot/imported/fireball.png-49cb8f5aea6700209327792cef994e09.ctex"]
+source_file="res://Recursos/Imagens/Não_Usados/espada.png"
+dest_files=["res://.godot/imported/espada.png-a62920cff2042773ffc213b87a0084ba.ctex"]
 
 [params]
 
