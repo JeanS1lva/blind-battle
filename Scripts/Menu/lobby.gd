@@ -2,6 +2,7 @@ extends Control
 
 @onready var status_lobby: Label = $"Interface/StatusLobby"
 @onready var gerenciador_lobby: Node = $"GerenciadorLobby"
+@onready var botao_pronto: Button = $"BotaoPronto"
 
 @onready var jogadores_ui: Array = [
 	$"Interface/Jogador1",
@@ -23,13 +24,15 @@ func _ready() -> void:
 	# 3. Conecta o sinal para receber as alterações dinâmicas da rede/gerenciador
 	if gerenciador_lobby:
 		gerenciador_lobby.dados_atualizados.connect(_atualizar_interface_jogadores)
-
+	
 # Executado APENAS uma vez na inicialização da cena
 func _inicializar_visibilidade_slots_ocupaveis() -> void:
 	for i in range(jogadores_ui.size()):
 		var slot = jogadores_ui[i]
 		slot.visible = (i < max_jogadores_sala)
-
+		
+func _on_botao_pronto_pressed() -> void:
+	get_tree().change_scene_to_file("res://Cenas/SelecaoPersonagem.tscn")
 # Maestro dinâmico: distribui os dados conforme os jogadores entram/saem
 func _atualizar_interface_jogadores(jogadores: Dictionary) -> void:
 	print("DEBUG [LobbyUI]: Sinal 'dados_atualizados' RECEBIDO! Dicionário recebido: ", jogadores)
