@@ -32,7 +32,7 @@ func _inicializar_visibilidade_slots_ocupaveis() -> void:
 		slot.visible = (i < max_jogadores_sala)
 		
 func _on_botao_pronto_pressed() -> void:
-	get_tree().change_scene_to_file("res://Cenas/SelecaoPersonagem.tscn")
+	get_tree().change_scene_to_file("res://Cenas/Menu/SelecaoPersonagem.tscn")
 # Maestro dinâmico: distribui os dados conforme os jogadores entram/saem
 func _atualizar_interface_jogadores(jogadores: Dictionary) -> void:
 	print("DEBUG [LobbyUI]: Sinal 'dados_atualizados' RECEBIDO! Dicionário recebido: ", jogadores)
