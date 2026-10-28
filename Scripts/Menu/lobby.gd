@@ -2,7 +2,7 @@ extends Control
 
 @onready var status_lobby: Label = $"Interface/StatusLobby"
 @onready var gerenciador_lobby: Node = $"GerenciadorLobby"
-@onready var botao_pronto: Button = $"BotaoPronto"
+@onready var botao_pronto: Button = $"Botões/BotaoPronto"
 
 @onready var jogadores_ui: Array = [
 	$"Interface/Jogador1",
