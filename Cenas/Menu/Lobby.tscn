@@ -231,3 +231,4 @@ script = ExtResource("7_m8cpe")
 script = ExtResource("8_0ih0d")
 
 [connection signal="pressed" from="Interface/Button" to="." method="_on_button_pressed"]
+[connection signal="pressed" from="Botões/BotaoPronto" to="." method="_on_botao_pronto_pressed"]
